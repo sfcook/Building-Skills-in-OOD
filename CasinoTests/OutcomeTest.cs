@@ -38,14 +38,14 @@ namespace CasinoTests
         [TestMethod]
         public void OutcomeWinAmount()
         {
-            Assert.AreEqual(outcome1.winAmount(5), 5);
-            Assert.AreEqual(outcome4.winAmount(5), 175);
+            Assert.AreEqual(outcome1.WinAmount(5), 5);
+            Assert.AreEqual(outcome4.WinAmount(5), 175);
 
-            Assert.AreEqual(outcome1.winAmount(0), 0);
-            Assert.AreEqual(outcome4.winAmount(0), 0);
+            Assert.AreEqual(outcome1.WinAmount(0), 0);
+            Assert.AreEqual(outcome4.WinAmount(0), 0);
 
-            Assert.AreEqual(outcome1.winAmount(1), 1);
-            Assert.AreEqual(outcome4.winAmount(1), 35);
+            Assert.AreEqual(outcome1.WinAmount(1), 1);
+            Assert.AreEqual(outcome4.WinAmount(1), 35);
         }
 
         [TestMethod]

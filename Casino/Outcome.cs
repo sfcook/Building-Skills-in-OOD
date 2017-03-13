@@ -17,7 +17,7 @@ namespace Casino
             this.odds = odds;
         }
 
-        public double winAmount(double amount)
+        public double WinAmount(double amount)
         {
             return amount * odds;
         }
