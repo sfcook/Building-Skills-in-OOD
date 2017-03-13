@@ -21,5 +21,17 @@ namespace Casino
         {
             return amount * odds;
         }
+
+        public override bool Equals(Object obj)
+        {
+            var outcome = obj as Outcome;
+
+            if (outcome == null)
+            {
+                return false;
+            }
+
+            return outcome.name == this.name;
+        }
     }
 }
