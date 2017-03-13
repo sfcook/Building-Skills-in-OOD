@@ -19,7 +19,7 @@ namespace Casino
 
         public double winAmount(double amount)
         {
-            throw new NotImplementedException();
+            return amount * odds;
         }
     }
 }
