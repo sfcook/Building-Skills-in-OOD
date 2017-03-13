@@ -38,5 +38,10 @@ namespace Casino
         {
             return string.Format("{0} ({1}:1)", name, odds);
         }
+
+        public override int GetHashCode()
+        {
+            return name.GetHashCode();
+        }
     }
 }
