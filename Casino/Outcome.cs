@@ -16,5 +16,10 @@ namespace Casino
             this.name = name;
             this.odds = odds;
         }
+
+        public double winAmount(double amount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
