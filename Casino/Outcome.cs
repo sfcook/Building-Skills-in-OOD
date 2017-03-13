@@ -33,5 +33,10 @@ namespace Casino
 
             return outcome.name == this.name;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1}:1)", name, odds);
+        }
     }
 }
