@@ -54,5 +54,12 @@ namespace CasinoTests
             Assert.AreEqual(outcome1.ToString(), "Red (1:1)");
             Assert.AreEqual(outcome4.ToString(), "00 (35:1)");
         }
+
+        [TestMethod]
+        public void OutcomeGetHashCode()
+        {
+            Assert.AreEqual(outcome1.GetHashCode(), outcome2.GetHashCode());
+            Assert.AreNotEqual(outcome1.GetHashCode(), outcome3.GetHashCode());
+        }
     }
 }
