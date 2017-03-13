@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
-    class Outcome
+    public class Outcome
     {
         public string name { get; set; }
         public int odds { get; set; }
