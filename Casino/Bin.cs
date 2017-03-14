@@ -7,7 +7,16 @@ using System.Collections;
 
 namespace Casino
 {
-    public class Bin<T> : HashSet<T>
+    public class Bin<Outcome> : HashSet<Outcome>
     {
+        public Bin() : base()
+        {
+
+        }
+
+        public Bin(IEnumerable<Outcome> collection) : base(collection)
+        {
+
+        }
     }
 }
