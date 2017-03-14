@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
+    /// <summary>
+    /// Outcome on which a single bet can be placed.
+    /// </summary>
     public class Outcome
     {
         public string name { get; set; }
@@ -17,6 +20,11 @@ namespace Casino
             this.odds = odds;
         }
 
+        /// <summary>
+        /// Calculates the amount that was won.
+        /// </summary>
+        /// <param name="amount">Amount that was bet.</param>
+        /// <returns>Amount that was won.</returns>
         public double WinAmount(double amount)
         {
             return amount * odds;
