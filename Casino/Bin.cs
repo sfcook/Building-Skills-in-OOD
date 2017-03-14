@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
+﻿using System.Collections.Generic;
+
+// Note: There is a ImmutableHashSet, closer to frozenset, but requires an additional package.
 
 namespace Casino
 {
