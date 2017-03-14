@@ -7,6 +7,10 @@ using System.Collections;
 
 namespace Casino
 {
+    /// <summary>
+    /// Collection of Outcomes.
+    /// </summary>
+    /// <typeparam name="Outcome"></typeparam>
     public class Bin<Outcome> : HashSet<Outcome>
     {
         public Bin() : base()
