@@ -13,6 +13,8 @@ namespace CasinoTests
         Wheel wheel;
         Bin<Outcome> bin0;
         Bin<Outcome> bin1;
+        Bin<Outcome> bin9;
+        Bin<Outcome> bin4;
         Outcome outcome0;
         Outcome outcome1;
         Outcome outcome2;
@@ -51,6 +53,16 @@ namespace CasinoTests
             wheel.AddOutcome(1, outcome7);
             wheel.AddOutcome(1, outcome8);
             wheel.AddOutcome(1, outcome9);
+
+            wheel.AddOutcome(9, outcome0);
+            wheel.AddOutcome(9, outcome1);
+            wheel.AddOutcome(9, outcome2);
+
+            wheel.AddOutcome(4, outcome3);
+            wheel.AddOutcome(4, outcome4);
+            wheel.AddOutcome(4, outcome5);
+            wheel.AddOutcome(4, outcome6);
+            wheel.AddOutcome(4, outcome7);
         }
 
         [TestMethod]
@@ -79,13 +91,20 @@ namespace CasinoTests
         {
             wheel.rng = new Random(1);
 
-            bin0 = wheel.Next();
-            bin1 = wheel.Next();
+            // Sequence with this seed and Next(38) is: 9, 4
 
-            // Actual values dependent on sequence of pseudo-random generator
-            // Test should change with implentation and testing of used seed
-            Assert.IsTrue(bin0.Contains(outcome0));
-            Assert.IsTrue(bin1.Contains(outcome9));
+            bin9 = wheel.Next();
+            bin4 = wheel.Next();
+
+            Assert.IsTrue(bin9.Contains(outcome0));
+            Assert.IsTrue(bin9.Contains(outcome1));
+            Assert.IsTrue(bin9.Contains(outcome2));
+
+            Assert.IsTrue(bin4.Contains(outcome3));
+            Assert.IsTrue(bin4.Contains(outcome4));
+            Assert.IsTrue(bin4.Contains(outcome5));
+            Assert.IsTrue(bin4.Contains(outcome6));
+            Assert.IsTrue(bin4.Contains(outcome7));
         }
 
         [TestMethod]

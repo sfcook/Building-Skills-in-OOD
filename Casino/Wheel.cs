@@ -13,22 +13,30 @@ namespace Casino
 
         public Wheel()
         {
-            throw new NotImplementedException();
+            rng = new Random();
+            bins = new List<Bin<Outcome>>();
+            
+            for(int i = 0; i < 38; i++)
+            {
+                bins.Add(new Bin<Outcome>());
+            }
         }
 
         public void AddOutcome(int number, Outcome outcome)
         {
-            throw new NotImplementedException();
+            bins[number].Add(outcome);
         }
 
         public Bin<Outcome> Next()
         {
-            throw new NotImplementedException();
+            int value = rng.Next(38);
+
+            return bins[value];
         }
 
         public Bin<Outcome> Get(int bin)
         {
-            throw new NotImplementedException();
+            return bins[bin];
         }
     }
 }
