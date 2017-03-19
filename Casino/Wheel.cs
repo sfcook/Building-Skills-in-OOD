@@ -24,6 +24,9 @@ namespace Casino
 
         public void AddOutcome(int number, Outcome outcome)
         {
+            if (number < 0 || number >= bins.Count)
+                return;
+
             bins[number].Add(outcome);
         }
 
@@ -36,6 +39,9 @@ namespace Casino
 
         public Bin<Outcome> Get(int bin)
         {
+            if (bin < 0 || bin >= bins.Count)
+                return null;
+
             return bins[bin];
         }
     }
