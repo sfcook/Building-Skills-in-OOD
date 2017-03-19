@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
-    class Wheel
+    public class Wheel
     {
         public List<Bin<Outcome>> bins { get; set; }
         public Random rng { get; set; }
 
-        Wheel()
+        public Wheel()
         {
             throw new NotImplementedException();
         }
