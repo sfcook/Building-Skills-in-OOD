@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Casino
 {
+    /// <summary>
+    /// Contains bins and can select one at random.
+    /// </summary>
     public class Wheel
     {
         public List<Bin<Outcome>> bins { get; set; }
@@ -22,6 +22,11 @@ namespace Casino
             }
         }
 
+        /// <summary>
+        /// Adds outcome to bin based on number.
+        /// </summary>
+        /// <param name="number">Index of bin.</param>
+        /// <param name="outcome">Outcome that relates to bin.</param>
         public void AddOutcome(int number, Outcome outcome)
         {
             if (number < 0 || number >= bins.Count)
@@ -30,6 +35,10 @@ namespace Casino
             bins[number].Add(outcome);
         }
 
+        /// <summary>
+        /// Select a bin at random.
+        /// </summary>
+        /// <returns>Selected Bin object.</returns>
         public Bin<Outcome> Next()
         {
             int value = rng.Next(38);
@@ -37,6 +46,11 @@ namespace Casino
             return bins[value];
         }
 
+        /// <summary>
+        /// Gets a bin based on index.
+        /// </summary>
+        /// <param name="bin">Index of bin.</param>
+        /// <returns>Bin object at index.</returns>
         public Bin<Outcome> Get(int bin)
         {
             if (bin < 0 || bin >= bins.Count)
