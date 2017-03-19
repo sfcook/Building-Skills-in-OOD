@@ -84,6 +84,10 @@ namespace CasinoTests
             wheel.AddOutcome(0, outcome6);
 
             Assert.AreEqual(bin0.Count, count + 3);
+
+            // Out of Range Check
+            wheel.AddOutcome(-1, outcome9);
+            wheel.AddOutcome(100, outcome9);
         }
 
         [TestMethod]
@@ -115,6 +119,10 @@ namespace CasinoTests
 
             Assert.AreEqual(bin0.Count, 4);
             Assert.AreEqual(bin1.Count, 6);
+
+            // Out of Range Check
+            wheel.Get(-1);
+            wheel.Get(100);
         }
     }
 }
