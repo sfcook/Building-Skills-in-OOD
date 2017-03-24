@@ -55,6 +55,7 @@
     <Compile Include="BinTest.cs" />
     <Compile Include="OutcomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BinBuilderTest.cs" />
     <Compile Include="WheelTest.cs" />
   </ItemGroup>
   <ItemGroup>
