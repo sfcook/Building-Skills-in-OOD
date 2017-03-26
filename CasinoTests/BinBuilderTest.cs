@@ -12,6 +12,7 @@ namespace CasinoTests
         Outcome outcome2;
         Outcome outcome3;
         Outcome outcome4;
+        Outcome outcome5;
         Wheel wheel;
         BinBuilder binBuilder;
 
@@ -177,26 +178,183 @@ namespace CasinoTests
         [TestMethod]
         public void GenerateLineBetsTest()
         {
+            outcome0 = new Outcome("1, 2, 3, 4, 5, 6", 5);
+            outcome1 = new Outcome("16, 17, 18, 19, 20, 21", 5);
+            outcome2 = new Outcome("31, 32, 33, 34, 35, 36", 5);
+
+            binBuilder.GenerateLineBets(wheel);
+
+            bin = wheel.Get(1);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(2);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(5);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(16);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(20);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(21);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(33);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(35);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(36);
+            Assert.IsTrue(bin.Contains(outcome2));
         }
 
         [TestMethod]
         public void GenerateDozenBetsTest()
         {
+            outcome0 = new Outcome("First Dozen", 2);
+            outcome1 = new Outcome("Second Dozen", 2);
+            outcome2 = new Outcome("Third Dozen", 2);
+
+            binBuilder.GenerateDozenBets(wheel);
+
+            bin = wheel.Get(1);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(7);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(12);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(13);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(20);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(24);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(25);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(30);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(36);
+            Assert.IsTrue(bin.Contains(outcome2));
         }
 
         [TestMethod]
         public void GenerateColumnBetsTest()
         {
+            outcome0 = new Outcome("First Column", 2);
+            outcome1 = new Outcome("Second Column", 2);
+            outcome2 = new Outcome("Third Column", 2);
+
+            binBuilder.GenerateColumnBets(wheel);
+
+            bin = wheel.Get(1);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(19);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(34);
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(2);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(27);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(35);
+            Assert.IsTrue(bin.Contains(outcome1));
+
+            bin = wheel.Get(3);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(15);
+            Assert.IsTrue(bin.Contains(outcome2));
+
+            bin = wheel.Get(36);
+            Assert.IsTrue(bin.Contains(outcome2));
         }
 
         [TestMethod]
         public void GenerateEvenMoneyBetsTest()
         {
+            outcome0 = new Outcome("Red", 1);
+            outcome1 = new Outcome("Black", 1);
+            outcome2 = new Outcome("Even", 1);
+            outcome3 = new Outcome("Odd", 1);
+            outcome4 = new Outcome("Low", 1);
+            outcome5 = new Outcome("High", 1);
+
+            binBuilder.GenerateEvenMoneyBets(wheel);
+
+            bin = wheel.Get(1);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+            Assert.IsTrue(bin.Contains(outcome3));
+            Assert.IsTrue(bin.Contains(outcome4));
+
+            bin = wheel.Get(14);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+            Assert.IsTrue(bin.Contains(outcome2));
+            Assert.IsTrue(bin.Contains(outcome4));
+
+            bin = wheel.Get(15);
+
+            Assert.IsTrue(bin.Contains(outcome1));
+            Assert.IsTrue(bin.Contains(outcome3));
+            Assert.IsTrue(bin.Contains(outcome4));
+
+            bin = wheel.Get(19);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+            Assert.IsTrue(bin.Contains(outcome3));
+            Assert.IsTrue(bin.Contains(outcome5));
+
+            bin = wheel.Get(26);
+
+            Assert.IsTrue(bin.Contains(outcome1));
+            Assert.IsTrue(bin.Contains(outcome2));
+            Assert.IsTrue(bin.Contains(outcome5));
         }
 
         [TestMethod]
         public void GenerateZeroBetsTest()
         {
+            outcome0 = new Outcome("Five Bet", 6);
+
+            binBuilder.GenerateZeroBets(wheel);
+
+            bin = wheel.Get(0);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(1);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(2);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(3);
+
+            Assert.IsTrue(bin.Contains(outcome0));
+
+            bin = wheel.Get(37);
+
+            Assert.IsTrue(bin.Contains(outcome0));
         }
     }
 }
