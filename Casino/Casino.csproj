@@ -48,6 +48,7 @@
     <Compile Include="Outcome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouletteGame.cs" />
     <Compile Include="Wheel.cs" />
   </ItemGroup>
   <ItemGroup>

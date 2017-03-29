@@ -13,14 +13,65 @@ namespace Casino
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Generates all stright bets
+        /// </summary>
+        /// <param name="wheel"></param>
         public void GenerateStraightBets(Wheel wheel)
         {
-            throw new NotImplementedException();
+            Outcome outcome;
+
+            // Add 0-36
+            for(int i = 0; i < 37; i++)
+            {
+                outcome = new Outcome(i.ToString(), RouletteGame.StraightBet);
+
+                wheel.AddOutcome(i, outcome);
+            }
+
+            // Add 00
+            outcome = new Outcome("00", RouletteGame.StraightBet);
+
+            wheel.AddOutcome(37, outcome);
         }
 
+        /// <summary>
+        /// Generates all split bets
+        /// </summary>
+        /// <param name="wheel"></param>
         public void GenerateSplitBets(Wheel wheel)
         {
-            throw new NotImplementedException();
+            Outcome outcome;
+            int num;
+
+            // Add left-right bets
+            for(int row = 0; row < 12; row++)
+            {
+                // First Column
+                num = (3 * row) + 1;
+
+                outcome = new Outcome(num + ", " + (num + 1), RouletteGame.SplitBet);
+
+                wheel.AddOutcome(num, outcome);
+                wheel.AddOutcome(num + 1, outcome);
+
+                // Second Column
+                num = (3 * row) + 2;
+
+                outcome = new Outcome(num + ", " + (num + 1), RouletteGame.SplitBet);
+
+                wheel.AddOutcome(num, outcome);
+                wheel.AddOutcome(num + 1, outcome);
+            }
+
+            // Add up-down bets
+            for (num = 1; num < 33; num++)
+            {
+                outcome = new Outcome(num + ", " + (num + 3), RouletteGame.SplitBet);
+
+                wheel.AddOutcome(num, outcome);
+                wheel.AddOutcome(num + 3, outcome);
+            }
         }
 
         public void GenerateStreetBets(Wheel wheel)

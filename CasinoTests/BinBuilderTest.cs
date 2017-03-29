@@ -46,7 +46,7 @@ namespace CasinoTests
             bin = wheel.Get(21);
             Assert.IsTrue(bin.Contains(outcome3));
 
-            bin = wheel.Get(00);
+            bin = wheel.Get(37);
             Assert.IsTrue(bin.Contains(outcome4));
         }
 
