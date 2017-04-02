@@ -8,6 +8,10 @@ namespace Casino
     /// </summary>
     public class BinBuilder
     {
+        /// <summary>
+        /// Generates all bets.
+        /// </summary>
+        /// <param name="wheel"></param>
         public void BuildBins(Wheel wheel)
         {
             GenerateStraightBets(wheel);
