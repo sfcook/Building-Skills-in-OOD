@@ -215,9 +215,9 @@ namespace CasinoTests
         [TestMethod]
         public void GenerateDozenBetsTest()
         {
-            outcome0 = new Outcome("First Dozen", 2);
-            outcome1 = new Outcome("Second Dozen", 2);
-            outcome2 = new Outcome("Third Dozen", 2);
+            outcome0 = new Outcome("Dozen 1", 2);
+            outcome1 = new Outcome("Dozen 2", 2);
+            outcome2 = new Outcome("Dozen 3", 2);
 
             binBuilder.GenerateDozenBets(wheel);
 
@@ -252,9 +252,9 @@ namespace CasinoTests
         [TestMethod]
         public void GenerateColumnBetsTest()
         {
-            outcome0 = new Outcome("First Column", 2);
-            outcome1 = new Outcome("Second Column", 2);
-            outcome2 = new Outcome("Third Column", 2);
+            outcome0 = new Outcome("Column 1", 2);
+            outcome1 = new Outcome("Column 2", 2);
+            outcome2 = new Outcome("Column 3", 2);
 
             binBuilder.GenerateColumnBets(wheel);
 
@@ -270,7 +270,7 @@ namespace CasinoTests
             bin = wheel.Get(2);
             Assert.IsTrue(bin.Contains(outcome1));
 
-            bin = wheel.Get(27);
+            bin = wheel.Get(26);
             Assert.IsTrue(bin.Contains(outcome1));
 
             bin = wheel.Get(35);
