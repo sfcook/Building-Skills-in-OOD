@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Casino
+﻿namespace Casino
 {
+    /// <summary>
+    /// Contains amount bet and outcome bet on
+    /// </summary>
     public class Bet
     {
         public int amountBet;
@@ -17,11 +14,19 @@ namespace Casino
             this.outcome = outcome;
         }
 
+        /// <summary>
+        /// Computes amount won icluding bet.
+        /// </summary>
+        /// <returns>Amount won.</returns>
         public int WinAmount()
         {
             return amountBet + (amountBet * outcome.odds);
         }
         
+        /// <summary>
+        /// Computes amount lost.
+        /// </summary>
+        /// <returns></returns>
         public int LoseAmount()
         {
             return amountBet;
