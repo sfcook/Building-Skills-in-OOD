@@ -13,22 +13,23 @@ namespace Casino
 
         public Bet(int amount, Outcome outcome)
         {
-
+            amountBet = amount;
+            this.outcome = outcome;
         }
 
         public int WinAmount()
         {
-            throw new NotImplementedException();
+            return amountBet + (amountBet * outcome.odds);
         }
         
         public int LoseAmount()
         {
-            throw new NotImplementedException();
+            return amountBet;
         }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return string.Format("{0} on {1}", amountBet, outcome);
         }
     }
 }
