@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
-    class Bet
+    public class Bet
     {
         public int amountBet;
         public Outcome outcome;
 
-        public Bet()
+        public Bet(int amount, Outcome outcome)
         {
 
         }
