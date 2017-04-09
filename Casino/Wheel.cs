@@ -58,5 +58,10 @@ namespace Casino
 
             return bins[bin];
         }
+
+        public Outcome GetOutcome(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

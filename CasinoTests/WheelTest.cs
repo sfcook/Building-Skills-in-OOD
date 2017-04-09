@@ -124,5 +124,13 @@ namespace CasinoTests
             wheel.Get(-1);
             wheel.Get(100);
         }
+
+        [TestMethod]
+        public void WheelGetOutcome()
+        {
+            Outcome outcome = wheel.GetOutcome("0");
+
+            Assert.AreEqual(outcome, outcome0);
+        }
     }
 }
