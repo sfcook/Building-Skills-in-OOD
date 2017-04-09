@@ -131,6 +131,10 @@ namespace CasinoTests
             Outcome outcome = wheel.GetOutcome("0");
 
             Assert.AreEqual(outcome, outcome0);
+
+            outcome = wheel.GetOutcome("NotAnItem");
+
+            Assert.IsTrue(outcome == null);
         }
     }
 }

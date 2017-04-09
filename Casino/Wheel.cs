@@ -10,11 +10,13 @@ namespace Casino
     {
         public List<Bin<Outcome>> bins { get; set; }
         public Random rng { get; set; }
+        public Dictionary<string, Outcome> allOutcomes { get; set; }
 
         public Wheel()
         {
             rng = new Random();
             bins = new List<Bin<Outcome>>();
+            allOutcomes = new Dictionary<string, Outcome>();
             
             for(int i = 0; i < 38; i++)
             {
@@ -32,7 +34,14 @@ namespace Casino
             if (number < 0 || number >= bins.Count)
                 return;
 
+            // add outcome to bin
             bins[number].Add(outcome);
+
+            // add outcome to allOutcomes
+            if (!allOutcomes.ContainsKey(outcome.name))
+            {
+                allOutcomes.Add(outcome.name, outcome);
+            }
         }
 
         /// <summary>
@@ -59,9 +68,19 @@ namespace Casino
             return bins[bin];
         }
 
+        /// <summary>
+        /// Gets outcome mapping of all outcomes.
+        /// </summary>
+        /// <param name="name">Name of outcome.</param>
+        /// <returns>Outcome if found.</returns>
         public Outcome GetOutcome(string name)
         {
-            throw new NotImplementedException();
+            if (allOutcomes.ContainsKey(name))
+            {
+                return allOutcomes[name];
+            }
+
+            return null;
         }
     }
 }
