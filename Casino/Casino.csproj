@@ -46,6 +46,7 @@
     <Compile Include="Bet.cs" />
     <Compile Include="Bin.cs" />
     <Compile Include="BinBuilder.cs" />
+    <Compile Include="InvalidBet.cs" />
     <Compile Include="Outcome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
