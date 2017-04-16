@@ -36,6 +36,10 @@ namespace CasinoTests
             Assert.IsTrue(table.bets.Contains(bet1));
             Assert.IsTrue(table.bets.Contains(bet2));
             Assert.IsTrue(table.bets.Count == 2);
+
+            table.PlaceBet(bet4);
+
+            Assert.IsTrue(table.bets.Count == 2);
         }
 
         [TestMethod]
@@ -75,22 +79,9 @@ namespace CasinoTests
                 Assert.AreEqual(ex.GetType(), typeof(InvalidBet));
             }
 
-            table.limit = 120;
-            table.minimum = 25;
+            table.limit = 500;
 
             table.IsValid();
-
-            table.PlaceBet(bet4);
-
-            try
-            {
-                table.IsValid();
-                Assert.Fail();
-            }
-            catch (Exception ex)
-            {
-                Assert.AreEqual(ex.GetType(), typeof(InvalidBet));
-            }
         }
     }
 }

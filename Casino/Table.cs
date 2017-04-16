@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Casino
 {
+    /// <summary>
+    /// Contains working bets.
+    /// </summary>
     public class Table : IEnumerable<Bet>
     {
         public int limit;
@@ -12,17 +14,37 @@ namespace Casino
 
         public Table()
         {
-
+            bets = new List<Bet>();
         }
 
+        /// <summary>
+        /// Adds a bet to table.
+        /// </summary>
+        /// <param name="bet">Bet to add to table.</param>
         public void PlaceBet(Bet bet)
         {
-            throw new NotImplementedException();
+            if (bet != null && bet.amountBet >= minimum)
+            {
+                bets.Add(bet);
+            }
         }
 
+        /// <summary>
+        /// Throws InvalidBet if the bets go over the table limit.
+        /// </summary>
         public void IsValid()
         {
-            throw new NotImplementedException();
+            int totalOfBets = 0;
+
+            foreach(Bet bet in bets)
+            {
+                totalOfBets += bet.amountBet;
+            }
+
+            if(totalOfBets > limit)
+            {
+                throw new InvalidBet();
+            }
         }
 
         public IEnumerator<Bet> GetEnumerator()
@@ -37,7 +59,7 @@ namespace Casino
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return "[" + string.Join(", ", bets) + "]";
         }
     }
 }
